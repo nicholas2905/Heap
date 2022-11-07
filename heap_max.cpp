@@ -40,36 +40,36 @@ class myHeap
 		void heapUp(int i)
 		{
 		// case where the parent is less than the son
-        if (i && data[Parent(i)] < data[i])
-        {
-            Swap(i, Parent(i));  // swapping 'i' and its parent
-            heapUp(Parent(i)); // doing the same for the parent node
-        }
-    	}
+        	if (i && data[Parent(i)] < data[i])
+        	{
+            		Swap(i, Parent(i));  // swapping 'i' and its parent
+            		heapUp(Parent(i)); // doing the same for the parent node
+        	}
+    		}
 	
 		// Function to change nodes downwards
-    	void heapDown(int i)
-    	{
+    		void heapDown(int i)
+    		{
         	int left = LeftSon(i);
        	 	int right = RightSon(i);
         	int smallest = i;
 
         	if (left < size && data[left] < data[i]) 
-			{
-            	smallest = left;
+		{
+            		smallest = left;
         	}
  
         	if (right < size && data[right] < data[smallest]) 
-			{
-            	smallest = right;
+		{
+            		smallest = right;
         	}
 		
         	if (smallest != i)
         	{
-            	Swap(i, smallest);
-            	heapDown(smallest); // repeat the same for the node
+            		Swap(i, smallest);
+            		heapDown(smallest); // repeat the same for the node
         	}
-    	}
+    		}
 	
 	public:
 
@@ -78,8 +78,7 @@ class myHeap
 		{
 		    data = new int[n];
 		    nextFreeSlot = 0;
-			size = n;
-		    
+		    size = n;   
 		}
 
 		// Function that adds in a new element
@@ -101,7 +100,6 @@ class myHeap
 				data[nextFreeSlot] = x; // 'x' goes into the next slot
 				heapUp(nextFreeSlot); // that slots moves upwards in the heap
 				nextFreeSlot++;
-				
 				return 1;
 			}
 		}
@@ -110,10 +108,10 @@ class myHeap
 		int pop() 
 		{
 		    data[0] = data[nextFreeSlot-1];
-			int temp = data[nextFreeSlot-1];
-            nextFreeSlot--;
+		    int temp = data[nextFreeSlot-1];
+            	    nextFreeSlot--;
 
-            heapDown(0);
+            	    heapDown(0);
 		    return temp; 
 		}
 		
@@ -129,6 +127,7 @@ class myHeap
 		}
 	
 };
+
 // Main function
 int main() 
 {
@@ -141,3 +140,4 @@ int main()
 	heap.print_heap();
     return 0;
 }
+;
